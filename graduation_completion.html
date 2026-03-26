@@ -1,0 +1,177 @@
+
+<style>
+  * { box-sizing: border-box; }
+  .wrap { padding: 1rem 0; font-family: var(--font-sans); }
+  .top-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 1.5rem; }
+  .stat { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 11px 13px; }
+  .stat-num { font-size: 21px; font-weight: 500; color: var(--color-text-primary); }
+  .stat-lbl { font-size: 11px; color: var(--color-text-secondary); margin-top: 2px; }
+  .section { margin-bottom: 1.4rem; }
+  .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 7px; padding-bottom: 5px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .section-title { font-size: 13px; font-weight: 500; color: var(--color-text-primary); }
+  .section-cr { font-size: 12px; color: var(--color-text-secondary); }
+  .course-row { display: grid; grid-template-columns: 78px 1fr 42px 60px 70px; gap: 6px; align-items: center; padding: 5px 8px; border-radius: 6px; font-size: 12px; }
+  .course-row:nth-child(odd) { background: var(--color-background-secondary); }
+  .code { font-weight: 500; color: var(--color-text-primary); font-size: 11px; }
+  .name { color: var(--color-text-secondary); font-size: 11px; }
+  .cr { font-size: 11px; color: var(--color-text-tertiary); text-align: right; }
+  .term { font-size: 10px; color: var(--color-text-tertiary); }
+  .grade { font-size: 11px; font-weight: 500; text-align: right; }
+  .grade-a { color: #27500A; }
+  .grade-b { color: #0C447C; }
+  .grade-tr { color: #633806; }
+  .grade-ip { color: #3C3489; }
+  .grade-ps { color: #444441; }
+  .badge { font-size: 10px; font-weight: 500; padding: 1px 6px; border-radius: 20px; }
+  .b-tr   { background: #FAEEDA; color: #633806; }
+  .b-ap   { background: #FAECE7; color: #712B13; }
+  .b-ip   { background: #EEEDFE; color: #3C3489; }
+  .b-plan { background: #E1F5EE; color: #085041; }
+  @media (prefers-color-scheme: dark) {
+    .b-tr   { background: #633806; color: #FAC775; }
+    .b-ap   { background: #712B13; color: #F5C4B3; }
+    .b-ip   { background: #3C3489; color: #CECBF6; }
+    .b-plan { background: #085041; color: #9FE1CB; }
+  }
+  .transfer-box { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 12px; margin-bottom: 1.4rem; border-left: 3px solid var(--color-border-info); }
+  .transfer-title { font-size: 12px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 6px; }
+  .transfer-row { display: grid; grid-template-columns: 78px 1fr 42px 60px; gap: 6px; padding: 3px 0; font-size: 11px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1rem; padding-top: 10px; border-top: 0.5px solid var(--color-border-tertiary); }
+  .leg { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--color-text-secondary); }
+  .leg-dot { width: 8px; height: 8px; border-radius: 2px; }
+  .subsection { font-size: 10px; font-weight: 500; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; padding: 6px 8px 3px; }
+  .total-bar { display: flex; justify-content: space-between; align-items: center; background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 14px; margin-top: 1rem; border: 0.5px solid var(--color-border-secondary); }
+  .total-label { font-size: 13px; font-weight: 500; color: var(--color-text-primary); }
+  .total-num { font-size: 18px; font-weight: 500; color: var(--color-text-primary); }
+</style>
+<div class="wrap">
+
+  <div class="top-grid">
+    <div class="stat"><div class="stat-num">120+</div><div class="stat-lbl">degree hours</div></div>
+    <div class="stat"><div class="stat-num" style="color:#BA7517">34</div><div class="stat-lbl">credits entering</div></div>
+    <div class="stat"><div class="stat-num" style="color:#639922">3.92</div><div class="stat-lbl">cumulative GPA</div></div>
+    <div class="stat"><div class="stat-num" style="color:#3C3489">May '27</div><div class="stat-lbl">graduation</div></div>
+  </div>
+
+  <div class="transfer-box">
+    <div class="transfer-title">Credits earned before UNC (Early College / AP / Community College) — 34cr</div>
+    <div class="transfer-row"><span class="code" style="color:var(--color-text-secondary)">Course</span><span style="color:var(--color-text-tertiary)">Name</span><span style="color:var(--color-text-tertiary);text-align:right">Cr</span><span style="color:var(--color-text-tertiary)">Source</span></div>
+    <div class="transfer-row"><span class="code">ENGL 110</span><span class="name">Credit for AP Engl Lang Test</span><span class="cr">3</span><span class="badge b-ap">AP</span></div>
+    <div class="transfer-row"><span class="code">ENGL 191</span><span class="name">Intro to Literary Studies</span><span class="cr">3</span><span class="badge b-tr">Transfer</span></div>
+    <div class="transfer-row"><span class="code">HIST 102</span><span class="name">Intro to Problems in US History</span><span class="cr">3</span><span class="badge b-tr">Transfer</span></div>
+    <div class="transfer-row"><span class="code">HIST 103</span><span class="name">Intro to Problems World History</span><span class="cr">3</span><span class="badge b-tr">Transfer</span></div>
+    <div class="transfer-row"><span class="code">PSYC 101</span><span class="name">General Psychology</span><span class="cr">3</span><span class="badge b-tr">Transfer</span></div>
+    <div class="transfer-row"><span class="code">ENEC 202</span><span class="name">Environmental Science</span><span class="cr">4</span><span class="badge b-tr">Transfer</span></div>
+    <div class="transfer-row"><span class="code">GEOG 120</span><span class="name">World Regional Geography</span><span class="cr">3</span><span class="badge b-tr">Transfer</span></div>
+    <div class="transfer-row"><span class="code">POLI 100</span><span class="name">Intro American Democracy</span><span class="cr">3</span><span class="badge b-tr">Transfer</span></div>
+    <div class="transfer-row"><span class="code">STOR 155</span><span class="name">Intro Data Models & Inference</span><span class="cr">3</span><span class="badge b-tr">Transfer</span></div>
+    <div class="transfer-row"><span class="code">ECON 101</span><span class="name">Econ: Intro</span><span class="cr">4</span><span class="badge b-tr">Transfer</span></div>
+    <div class="transfer-row"><span class="code">MATH 152</span><span class="name">Calculus Bus/SS</span><span class="cr">3</span><span class="badge b-tr">Transfer</span></div>
+    <div class="transfer-row"><span class="code">GENR 111</span><span class="name">Ideas GE FC-Aesthetic</span><span class="cr">3</span><span class="badge b-tr">Transfer</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-title">Business Administration major</span>
+      <span class="section-cr">46.5cr required · 46.5cr completed</span>
+    </div>
+    <div class="subsection">Core courses</div>
+    <div class="course-row"><span class="code">BUSI 401</span><span class="name">Mgmt & Corporate Communication</span><span class="cr">3</span><span class="term">Spr '25</span><span class="grade grade-b">B+</span></div>
+    <div class="course-row"><span class="code">BUSI 402</span><span class="name">Applied Microeconomics for Bus</span><span class="cr">1.5</span><span class="term">Fal '26</span><span class="grade grade-ip"><span class="badge b-ip">In prog</span></span></div>
+    <div class="course-row"><span class="code">BUSI 403</span><span class="name">Operations Management</span><span class="cr">3</span><span class="term">Fal '26</span><span class="grade grade-ip"><span class="badge b-ip">In prog</span></span></div>
+    <div class="course-row"><span class="code">BUSI 404</span><span class="name">Business Ethics</span><span class="cr">1.5</span><span class="term">Spr '25</span><span class="grade grade-a">A</span></div>
+    <div class="course-row"><span class="code">BUSI 405</span><span class="name">Leading & Managing</span><span class="cr">3</span><span class="term">Fal '26</span><span class="grade grade-ip"><span class="badge b-ip">In prog</span></span></div>
+    <div class="course-row"><span class="code">BUSI 406</span><span class="name">Principles of Marketing</span><span class="cr">3</span><span class="term">Spr '25</span><span class="grade grade-a">A</span></div>
+    <div class="course-row"><span class="code">BUSI 407</span><span class="name">Financial Accounting</span><span class="cr">3</span><span class="term">Fal '26</span><span class="grade grade-ip"><span class="badge b-ip">In prog</span></span></div>
+    <div class="course-row"><span class="code">BUSI 408</span><span class="name">Corporate Finance</span><span class="cr">3</span><span class="term">Spr '25</span><span class="grade grade-b">B+</span></div>
+    <div class="course-row"><span class="code">BUSI 410</span><span class="name">Business Analytics</span><span class="cr">3</span><span class="term">Spr '27</span><span class="grade grade-ip"><span class="badge b-plan">Planned</span></span></div>
+    <div class="course-row"><span class="code">BUSI 411</span><span class="name">Strategy I: Competitive Strategy</span><span class="cr">1.5</span><span class="term">Fal '26</span><span class="grade grade-ip"><span class="badge b-ip">In prog</span></span></div>
+    <div class="course-row"><span class="code">BUSI 412</span><span class="name">Strategy II: Global Corporate Strategy</span><span class="cr">1.5</span><span class="term">Spr '27</span><span class="grade grade-ip"><span class="badge b-plan">Planned</span></span></div>
+    <div class="subsection">Business electives</div>
+    <div class="course-row"><span class="code">BUSI 502</span><span class="name">Entrepreneurial Finance</span><span class="cr">1.5</span><span class="term">Fal '25</span><span class="grade grade-a">A</span></div>
+    <div class="course-row"><span class="code">BUSI 585</span><span class="name">Intro to Real Estate</span><span class="cr">3</span><span class="term">Fal '25</span><span class="grade grade-a">A</span></div>
+    <div class="course-row"><span class="code">BUSI 590</span><span class="name">Business Seminar</span><span class="cr">3</span><span class="term">Fal '25</span><span class="grade grade-a">A</span></div>
+    <div class="course-row"><span class="code">BUSG 101</span><span class="name">Exchange – KFBS Study Abroad</span><span class="cr">11</span><span class="term">Spr '26</span><span class="grade grade-ip"><span class="badge b-ip">In prog</span></span></div>
+    <div class="course-row"><span class="code">BUSI elec</span><span class="name">Weekend elective class</span><span class="cr">1.5</span><span class="term">Spr '27</span><span class="grade grade-ip"><span class="badge b-plan">Planned</span></span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-title">PPE minor</span>
+      <span class="section-cr">15cr required · 15cr completed</span>
+    </div>
+    <div class="course-row"><span class="code">PHIL 384</span><span class="name">Gateway to Phil/Poli/Econ</span><span class="cr">3</span><span class="term">Spr '25</span><span class="grade grade-a">A</span></div>
+    <div class="course-row"><span class="code">PHIL 160</span><span class="name">Introduction to Ethics</span><span class="cr">3</span><span class="term">Fal '24</span><span class="grade grade-a">A</span></div>
+    <div class="course-row"><span class="code">POLI 288</span><span class="name">Strategy and Politics</span><span class="cr">3</span><span class="term">Fal '25</span><span class="grade grade-a">A</span></div>
+    <div class="course-row"><span class="code">ECON 101</span><span class="name">Intro to Economics (shared)</span><span class="cr">4</span><span class="term">Fal '23</span><span class="grade grade-tr">TR</span></div>
+    <div class="course-row"><span class="code">ECON 698</span><span class="name">PPE Capstone</span><span class="cr">3</span><span class="term">Fal '26</span><span class="grade grade-ip"><span class="badge b-ip">In prog</span></span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-title">Entrepreneurship minor</span>
+      <span class="section-cr">15cr required · 15cr completed</span>
+    </div>
+    <div class="course-row"><span class="code">ECON 101</span><span class="name">Intro to Economics (shared)</span><span class="cr">4</span><span class="term">Fal '23</span><span class="grade grade-tr">TR</span></div>
+    <div class="course-row"><span class="code">ECON 125</span><span class="name">Intro to Entrepreneurship</span><span class="cr">3</span><span class="term">Fal '24</span><span class="grade grade-a">A</span></div>
+    <div class="course-row"><span class="code">ECON 325</span><span class="name">Entrepreneurship: P&P</span><span class="cr">3</span><span class="term">Fal '25</span><span class="grade grade-a">A</span></div>
+    <div class="course-row"><span class="code">ECON 327</span><span class="name">Venture-Creation Workshop</span><span class="cr">3</span><span class="term">Spr '24</span><span class="grade grade-a">A</span></div>
+    <div class="course-row"><span class="code">ECON 393</span><span class="name">Practicum in Entrepreneurship</span><span class="cr">3</span><span class="term">Spr '27</span><span class="grade grade-ip"><span class="badge b-plan">Planned</span></span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-title">General Education</span>
+      <span class="section-cr">All requirements satisfied</span>
+    </div>
+    <div class="subsection">First-year foundations</div>
+    <div class="course-row"><span class="code">ENGL 105</span><span class="name">Eng Composition & Rhetoric</span><span class="cr">3</span><span class="term">Fal '23</span><span class="grade grade-a">A</span></div>
+    <div class="course-row"><span class="code">IDST 101</span><span class="name">College Thriving</span><span class="cr">1</span><span class="term">Spr '24</span><span class="grade grade-ps">PS</span></div>
+    <div class="course-row"><span class="code">COMM 89</span><span class="name">FYS: Special Topics</span><span class="cr">3</span><span class="term">Spr '24</span><span class="grade grade-a">A</span></div>
+    <div class="course-row"><span class="code">IDST 130</span><span class="name">The Future of Food (Triple-I)</span><span class="cr">3</span><span class="term">Fal '23</span><span class="grade grade-a">A</span></div>
+    <div class="course-row"><span class="code">IDST 130L</span><span class="name">Data Literacy Lab</span><span class="cr">1</span><span class="term">Fal '23</span><span class="grade grade-a">A</span></div>
+    <div class="course-row"><span class="code">GERM 102</span><span class="name">Elementary German II</span><span class="cr">4</span><span class="term">Fal '23</span><span class="grade grade-a">A</span></div>
+    <div class="course-row"><span class="code">GERM 203</span><span class="name">Intermediate German I</span><span class="cr">3</span><span class="term">Spr '24</span><span class="grade grade-a">A</span></div>
+    <div class="subsection">Focus capacities</div>
+    <div class="course-row"><span class="code">GENR 111</span><span class="name">Ideas GE FC-Aesthetic</span><span class="cr">3</span><span class="term">Fal '23</span><span class="grade grade-tr">TR</span></div>
+    <div class="course-row"><span class="code">ECON 125</span><span class="name">Intro to Entrepreneurship (Creative)</span><span class="cr">3</span><span class="term">Fal '24</span><span class="grade grade-a">A</span></div>
+    <div class="course-row"><span class="code">CLAS 263H</span><span class="name">Athletics Greek & Roman Worlds</span><span class="cr">3</span><span class="term">Fal '24</span><span class="grade grade-a">A</span></div>
+    <div class="course-row"><span class="code">POLI 100</span><span class="name">Intro American Democracy (Ethical)</span><span class="cr">3</span><span class="term">Sum '23</span><span class="grade grade-tr">TR</span></div>
+    <div class="course-row"><span class="code">GERM 304</span><span class="name">Business German (Global)</span><span class="cr">3</span><span class="term">Fal '24</span><span class="grade grade-a">A</span></div>
+    <div class="course-row"><span class="code">ENEC 202</span><span class="name">Environmental Science (Natural Sci)</span><span class="cr">4</span><span class="term">Sum '23</span><span class="grade grade-tr">TR</span></div>
+    <div class="course-row"><span class="code">GEOG 120</span><span class="name">World Regional Geography (PDI)</span><span class="cr">3</span><span class="term">Sum '23</span><span class="grade grade-tr">TR</span></div>
+    <div class="course-row"><span class="code">STOR 155</span><span class="name">Intro Data Models (Quantitative)</span><span class="cr">3</span><span class="term">Sum '23</span><span class="grade grade-tr">TR</span></div>
+    <div class="course-row"><span class="code">ECON 101</span><span class="name">Econ: Intro (Ways of Knowing)</span><span class="cr">4</span><span class="term">Fal '23</span><span class="grade grade-tr">TR</span></div>
+    <div class="subsection">Reflection & integration</div>
+    <div class="course-row"><span class="code">LFIT 114</span><span class="name">Lifetime Fitness: Yoga/Pilates</span><span class="cr">1</span><span class="term">Fal '23</span><span class="grade grade-ps">PS</span></div>
+    <div class="course-row"><span class="code">ECON 327</span><span class="name">Venture-Creation Workshop (High Impact)</span><span class="cr">3</span><span class="term">Spr '24</span><span class="grade grade-a">A</span></div>
+    <div class="course-row"><span class="code">GERM 304</span><span class="name">Business German (Comm Beyond Carolina)</span><span class="cr">3</span><span class="term">Fal '24</span><span class="grade grade-a">A</span></div>
+    <div class="course-row"><span class="code">R&D</span><span class="name">Research & Discovery (TBD)</span><span class="cr">3</span><span class="term">Spr '27</span><span class="grade grade-ip"><span class="badge b-plan">Planned</span></span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-title">Additional coursework & electives</span>
+      <span class="section-cr"></span>
+    </div>
+    <div class="course-row"><span class="code">BUSI 100</span><span class="name">Intro to Business</span><span class="cr">1.5</span><span class="term">Fal '23</span><span class="grade grade-a">A</span></div>
+    <div class="course-row"><span class="code">EMES 103</span><span class="name">Marine Environment</span><span class="cr">3</span><span class="term">Spr '24</span><span class="grade grade-a">A</span></div>
+    <div class="course-row"><span class="code">EMES 103L</span><span class="name">Marine Environment Lab</span><span class="cr">1</span><span class="term">Spr '24</span><span class="grade grade-a">A</span></div>
+    <div class="course-row"><span class="code">PHIL 160</span><span class="name">Introduction to Ethics</span><span class="cr">3</span><span class="term">Fal '24</span><span class="grade grade-a">A</span></div>
+    <div class="course-row"><span class="code">SPAN 401</span><span class="name">Beginning Accelerated Spanish</span><span class="cr">3</span><span class="term">Fal '25</span><span class="grade grade-ps">PS</span></div>
+  </div>
+
+  <div class="total-bar">
+    <span class="total-label">Total degree credits at graduation</span>
+    <span class="total-num">~124 cr</span>
+  </div>
+
+  <div class="legend">
+    <div class="leg"><div class="leg-dot" style="background:#639922"></div>A — letter grade</div>
+    <div class="leg"><div class="leg-dot" style="background:#378ADD"></div>B+ — letter grade</div>
+    <div class="leg"><div class="leg-dot" style="background:#888780"></div>PS — pass</div>
+    <div class="leg"><div class="leg-dot" style="background:#BA7517"></div>TR — transfer credit</div>
+    <div class="leg"><div class="leg-dot" style="background:#7F77DD"></div>In progress</div>
+    <div class="leg"><div class="leg-dot" style="background:#1D9E75"></div>Planned (Spr '27)</div>
+  </div>
+</div>
